@@ -1,12 +1,13 @@
-var input = document.querySelector('input')
-var observable = Rx.Observable.fromEvent(input, 'input');
+var input1 = document.querySelector('#input1');
+var input2 = document.querySelector('#input2');
+var span = document.querySelector('span');
 
-observable
-    .pluck('target', 'value')
-    .debounceTime(500)
-    .distinctUntilChanged()
-    .subscribe({
-    next: function (value) {
-        console.log(value)
-    }
-})
+var obs1 = Rx.Observable.fromEvent(input1, 'input')
+    .subscribe(
+        event => { span.textContent = event.target.value }
+    );
+
+var obs2 = Rx.Observable.fromEvent(input2, 'input')
+    .subscribe(
+        event => { span.textContent = event.target.value }
+    );
