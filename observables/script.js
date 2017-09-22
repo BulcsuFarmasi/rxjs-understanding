@@ -20,7 +20,7 @@ Rx.Observable.create(function (obs) {
     //    obs.complete();
     //    obs.next('Another value');
     //},2000)
-    button.onclick = function (event) {
+    button.addEventListener('click', function (event) {
         obs.next(event);
-    }
+    })
 }).subscribe(observer);
