@@ -2,6 +2,7 @@ var button = document.querySelector('button');
 //button.addEventListener('click', event => {console.log(event)});
 Rx.Observable.fromEvent(button, 'click')
     .throttleTime(1000)
+    .map(data => data.clientY)
     .subscribe(
-        event => {console.log(event.clientX)}
+        cooardinate => {console.log(cooardinate)}
     );
