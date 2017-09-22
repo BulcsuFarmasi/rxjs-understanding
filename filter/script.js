@@ -1,23 +1,12 @@
-var subject = new Rx.Subject();
+var observable = Rx.Observable.interval(1000);
 
-subject.subscribe({
+observable
+    .filter()
+    .subscribe({
     next: function (value) {
-        console.log(value);
+        console.log(value)
     },
     error: function (error) {
-        console.log(error);
-    },
-    complete: function () {
-        console.log('Complete');
+        console.log('Error: ' + error);
     }
 })
-
-subject.subscribe({
-    next: function (value) {
-        console.log(value);
-    }
-})
-
-subject.next('A new data piece');
-subject.complete('Error');
-subject.next('New value');
