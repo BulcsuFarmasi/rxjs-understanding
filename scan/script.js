@@ -1,10 +1,7 @@
-var input = document.querySelector('input')
-var observable = Rx.Observable.fromEvent(input, 'input');
+var observable = Rx.Observable.of(1, 2, 3, 4, 5);
 
 observable
-    .map(event => event.target.value)
-    .debounceTime(500)
-    .distinctUntilChanged()
+    .reduce((total, currentValue) => total + currentValue, 0)
     .subscribe({
     next: function (value) {
         console.log(value)
