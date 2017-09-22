@@ -14,10 +14,13 @@ var observer = {
 //Rx.Observable.fromEvent(button, 'click')
 
 Rx.Observable.create(function (obs) {
-    obs.next('A value');
+    //obs.next('A value');
     //obs.error('Error');
-    setTimeout(function () {
-        obs.complete();
-        obs.next('Another value');
-    },2000)
+    //setTimeout(function () {
+    //    obs.complete();
+    //    obs.next('Another value');
+    //},2000)
+    button.onclick = function (event) {
+        obs.next(event);
+    }
 }).subscribe(observer);
