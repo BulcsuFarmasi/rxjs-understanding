@@ -9,3 +9,5 @@ button.addEventListener('click', () => {
 clickEmitted.subscribe(
     value => div.textContent =  value
 )
+
+clickEmitted.next('Not Clicked')
