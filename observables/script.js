@@ -16,6 +16,8 @@ var observer = {
 Rx.Observable.create(function (obs) {
     obs.next('A value');
     //obs.error('Error');
-    obs.complete();
-    obs.next('Another value');
+    setTimeout(function () {
+        obs.complete();
+        obs.next('Another value');
+    },2000)
 }).subscribe(observer);
