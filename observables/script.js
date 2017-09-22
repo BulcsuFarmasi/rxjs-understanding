@@ -13,7 +13,7 @@ var observer = {
 }
 //Rx.Observable.fromEvent(button, 'click')
 
-Rx.Observable.create(function (obs) {
+var subscription = Rx.Observable.create(function (obs) {
     //obs.next('A value');
     //obs.error('Error');
     //setTimeout(function () {
@@ -24,3 +24,7 @@ Rx.Observable.create(function (obs) {
         obs.next(event);
     })
 }).subscribe(observer);
+
+setTimeout(function () {
+    subscription.unsubscribe()
+}, 5000)
