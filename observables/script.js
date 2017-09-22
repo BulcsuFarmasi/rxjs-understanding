@@ -11,6 +11,11 @@ var observer = {
         console.log('Completed!')
     }
 }
+//Rx.Observable.fromEvent(button, 'click')
 
-Rx.Observable.fromEvent(button, 'click')
-    .subscribe(observer);
+Rx.Observable.create(function (obs) {
+    obs.next('A value');
+    //obs.error('Error');
+    obs.complete();
+    obs.next('Another value');
+}).subscribe(observer);
